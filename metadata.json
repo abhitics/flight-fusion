@@ -1,0 +1,6 @@
+{
+  "name": "FlightFusion Studio",
+  "description": "Aerospace telemetry intelligence platform with multi-MCU time synchronization, flight reconstruction, hybrid anomaly detection, 3D attitude replay, and synthetic fault lab.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
