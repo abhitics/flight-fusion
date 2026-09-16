@@ -19,7 +19,7 @@ function SyntheticRocket() {
   });
 
   return (
-    <group ref={rocketRef} position={[5.5, -2, 0]} scale={0.65}>
+    <group ref={rocketRef} position={[6, -4, -2]} scale={1.2}>
       {/* Engine Nozzle */}
       <mesh position={[0, 0, 0]}>
         <cylinderGeometry args={[0.2, 0.4, 0.8, 32]} />
