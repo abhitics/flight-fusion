@@ -28,6 +28,7 @@ import { MultiFlightView } from "./components/MultiFlightView";
 import { PostFlightReportModal } from "./components/PostFlightReportModal";
 import { VehicleConfigModal } from "./components/VehicleConfigModal";
 import { DataIngestionModal } from "./components/DataIngestionModal";
+import { HomePage } from "./components/HomePage";
 
 import {
   Compass,
@@ -49,6 +50,7 @@ import {
   Database,
   Search,
   ExternalLink,
+  Home,
 } from "lucide-react";
 
 const INITIAL_VEHICLE_PROFILE: VehicleProfile = {
@@ -92,6 +94,8 @@ const INITIAL_VEHICLE_PROFILE: VehicleProfile = {
 };
 
 export default function App() {
+  const [showHomepage, setShowHomepage] = useState(true);
+
   // Navigation State
   const [activeTab, setActiveTab] = useState<
     "MISSION_CONTROL" | "MULTI_FLIGHT" | "SYNTHETIC_LAB" | "REPORT"
@@ -158,12 +162,23 @@ export default function App() {
     setCurrentIndex(0);
   };
 
+  if (showHomepage) {
+    return <HomePage onEnterDashboard={() => setShowHomepage(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-[#050811] text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Top Aerospace Navigation Bar */}
       <header className="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-md">
         {/* Brand & Mission Status */}
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => setShowHomepage(true)}
+            className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-sky-300 hover:border-sky-500/50 hover:bg-sky-950/30 transition-all"
+            title="Back to Homepage"
+          >
+            <Home className="w-4 h-4" />
+          </button>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-cyan-400 p-0.5 shadow-[0_0_15px_rgba(56,189,248,0.4)] flex items-center justify-center">
               <Rocket className="w-5 h-5 text-slate-950 fill-current" />
